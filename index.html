@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мэдээлэл, Технологийн Сургууль</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-blue-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">МТС</h1>
+            <div class="space-x-4 hidden md:flex">
+                <a href="#" class="hover:text-blue-200">Нүүр</a>
+                <a href="#" class="hover:text-blue-200">Танилцуулга</a>
+                <a href="#" class="hover:text-blue-200">Хөтөлбөр</a>
+                <a href="#" class="hover:text-blue-200">Холбоо барих</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Slider -->
+    <div class="relative w-full h-96 overflow-hidden">
+        <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmUJDmok7RJ9R3Cg3EMfRVqMA4ILykcPX50A&s" class="w-full h-96 object-cover" alt="Banner 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIiUv9FL8BraBCvBdFp_jripgTa7WBilfPcQ&s" class="w-full h-96 object-cover" alt="Banner 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyY30dilU6UcLXBI6EWtdBUVtAg6hT5sLsiQ&s" class="w-full h-96 object-cover" alt="Banner 3">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto py-8 px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Мэдээлэл, Технологийн Сургууль</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- About Section -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-xl font-semibold mb-4">Бидний тухай</h3>
+                <p class="text-gray-700">
+                    Мэдээлэл, Технологийн Сургууль нь орчин үеийн технологийн чиглэлээр мэргэжилтэн бэлтгэх зорилготой байгуулагдсан. 
+                    Бид оюутнуудад дэлхийн стандартад нийцсэн боловсрол олгохыг эрмэлздэг.
+                </p>
+            </div>
+
+            <!-- Programs Section -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-xl font-semibold mb-4">Хөтөлбөрүүд</h3>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>Програм хангамжийн инженерчлэл</li>
+                    <li>Мэдээллийн аюулгүй байдал</li>
+                    <li>Хиймэл оюун ухаан</li>
+                    <li>Вэб хөгжүүлэлт</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Мэдээлэл, Технологийн Сургууль. Бүх эрх хуулиар хамгаалагдсан.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Slider -->
+    <script>
+        const slider = document.getElementById('slider');
+        let currentIndex = 0;
+        const slides = slider.children.length;
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides;
+            slider.style.transform = translateX(-${currentIndex * 100}%);
+        }
+
+        // 3 секунд тутамд баннер солигдоно
+        setInterval(nextSlide, 3000);
+
+        // Responsive menu toggle for mobile
+        const menuToggle = document.createElement('button');
+        menuToggle.innerHTML = '☰';
+        menuToggle.className = 'md:hidden text-white text-2xl';
+        document.querySelector('nav .container').appendChild(menuToggle);
+
+        const menu = document.querySelector('nav .space-x-4');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
